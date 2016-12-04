@@ -2,7 +2,10 @@
 
 var allGifs = document.querySelectorAll('img[src*=".gif"]');
 for (var ii = 0; ii < allGifs.length; ii++) {
-  allGifs[ii].src = '';
+  // Fix for breaking gmail starring. Why you use gifs, Google?
+  if (!allGifs[ii].src.match('cleardot.gif')) {
+    allGifs[ii].src = '';
+  }
 }
 
 var elementNames = ['div', 'body', 'td', 'span'];
@@ -12,7 +15,7 @@ elementNames.forEach( function(tagName) {
     var numTags = tags.length;
     for (var i = 0; i < numTags; i++) {
       tag = tags[i];
-      if (tag.style.background.match('url')) {
+      if (tag.style.background.match(/url.*?gif/i)) {
         tag.style.background = '';
       }
     }
