@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+
+  "name": "DeGIF",
+  "description": "Remove all gifs from the page.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "nogif.png",
+    "default_title": "DeGIF"
+  },
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  }
+}
